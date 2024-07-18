@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -32,3 +33,6 @@ Route::get('/rankmaster', function () {
 Route::get('/reports' , function (){
     return view('reports');
 })->name('reports');
+
+
+//Route::get('/images_upload',[ImageController::class , 'index'])->name('images-upload');
