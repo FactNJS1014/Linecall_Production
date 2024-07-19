@@ -2,7 +2,7 @@
 @section('title','Linecall-02')
 @section('content')
     <h3 class="text-center mb-4" id="textheader"><i class="fa-solid fa-file-medical fa-lg mx-4"></i>แบบฟอร์มบันทึกข้อมูลปัญหาและการหลุดรอย</h3>
-    <form action="" id="prbandesc" class="needs-validation" novalidate>
+    <form action="" id="leak_rec" class="needs-validation" novalidate>
         <div class="row mt-3">
             <div class="col-md-4">
                 <label class="h5" style="color: #003f88;">รหัสพนักงาน:</label>
@@ -52,7 +52,7 @@
                         <td><textarea name="l_why4" id="l_why4"  rows="3" class="form-control" style="font-size: 20px; font-weight: 700;" placeholder="why4" required></textarea></td>
                     </tr>
                     <tr>
-                        <td><textarea name="l_why5" id="l_why5"  rows="3" class="form-control" style="font-size: 20px; font-weight: 700;" placeholder="why5" required></textarea></td>
+                        <td><textarea name="l_why5" id="l_why5"  rows="3" class="form-control" style="font-size: 20px; font-weight: 700;" placeholder="why5"></textarea></td>
                     </tr>
                     </tbody>
                     <thead>
@@ -70,6 +70,16 @@
 
         </div>
 
+
+
+        <div class="d-flex justify-content-center mt-3">
+            <input type="submit" value="บันทึก Leak" class="btn savebtn p-2">
+        </div>
+
+
+    </form>
+
+    <form action="" id="Root_rec" class="needs-validation" novalidate>
         <div class="card mt-3">
             <div class="p-2">
                 <table class="table table-bordered mt-2">
@@ -101,7 +111,7 @@
                         <td><textarea name="r_why4" id="r_why4"  rows="3" class="form-control" style="font-size: 20px; font-weight: 700;" placeholder="why4" required></textarea></td>
                     </tr>
                     <tr>
-                        <td><textarea name="r_why5" id="r_why5"  rows="3" class="form-control" style="font-size: 20px; font-weight: 700;" placeholder="why5" required></textarea></td>
+                        <td><textarea name="r_why5" id="r_why5"  rows="3" class="form-control" style="font-size: 20px; font-weight: 700;" placeholder="why5" ></textarea></td>
                     </tr>
                     </tbody>
                     <thead>
@@ -119,12 +129,9 @@
             </div>
 
         </div>
-
         <div class="d-flex justify-content-center mt-3">
-            <input type="submit" value="บันทึก" class="btn savebtn p-2">
+            <input type="submit" value="บันทึก Root" class="btn savebtn p-2">
         </div>
-
-
     </form>
 @endsection
 

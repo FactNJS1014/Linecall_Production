@@ -1,7 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\LeakController;
+use App\Http\Controllers\RootController;
+use App\Http\Controllers\ProblemController;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,3 +38,7 @@ Route::get('/reports' , function (){
 
 
 //Route::get('/images_upload',[ImageController::class , 'index'])->name('images-upload');
+
+//บันทึกข้อมูล Leak and Root 5 Why
+Route::post('/LeakRecord' , [LeakController::class , 'recordLeak'])->name('recordLeak');
+Route::post('/ProblemRecord' , [ProblemController::class , 'recordPrb'])->name('recordPrb');

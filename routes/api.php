@@ -2,6 +2,11 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\LeakController;
+use App\Http\Controllers\RootController;
+use App\Http\Controllers\ProblemController;
+
+
 
 /*
 |--------------------------------------------------------------------------

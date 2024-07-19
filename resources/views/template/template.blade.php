@@ -5,13 +5,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>@yield('title')</title>
     {{--    <link href="./src/output.css" rel="stylesheet">--}}
     <link rel="stylesheet" href="{{ asset('public/css/app.css') }}">
     <link rel="stylesheet" href="{{ asset('public/css/styles.css') }}">
     <link rel="stylesheet" href="{{asset('public/css/icons.css')}}">
     <link rel="stylesheet" href="{{asset('public/css/fonts.css')}}">
-    <link rel="stylesheet" href="{{asset('public/css/datatables.css/datatables.min.css')}}">
+    <link rel="stylesheet" href="{{asset('public/css/fonts/vendor/boxicons')}}">
     <link rel="stylesheet" href="{{asset('public/css/all.min.css')}}">
     <link rel="stylesheet" href="{{asset('public/css/boxicons.min.css')}}">
     <link rel="shortcut icon" href="{{ asset('public/images/pcbboard.png') }}" type="image/x-icon">

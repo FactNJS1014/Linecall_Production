@@ -4,6 +4,7 @@
     <div class="container mt-3">
         <h3 class="text-center mb-2" id="textheader"><i class="fa-solid fa-file-medical fa-lg mx-4"></i>แบบฟอร์มบันทึกข้อมูล Line-call Production</h3>
         <form action="" class="needs-validation" id="gen_record" novalidate>
+            @csrf
             <div class="card border-dark active" id="card1" >
                 <div class="card-header">
                     <p class="fs-5 mt-2">ส่วนบันทึกข้อมูลทั่วไป</p>
@@ -11,12 +12,19 @@
                 <div class="card-body">
                     <div class="row">
                         <div class="col-md-4">
+                            <label class="h5" style="color: #003f88;">วันที่ปัจจุบัน</label>
+                            <input type="date" name="datenow" id="datenow" class="form-control fs-5" style="font-weight: 700">
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
                             <label class="h5" style="color: #003f88;">รหัสพนักงาน:</label>
                             <input type="text" name="empid" id="empid" class="form-control" placeholder="กรอกรหัสพนักงาน" required>
                         </div>
 
                         <div class="col-md-4">
-                            <label class="h5" style=" color: #003f88;">Line Production:</label>
+                            <label class="h5" style="color: #003f88;">Line Production:</label>
                             <select class="form-select form-control" id="line" name="line" required>
                                 <option value="" selected disabled>เลือกไลน์ผลิต</option>
                                 <optgroup label="Line-MT" class="line1">
@@ -143,11 +151,11 @@
                     <div class="row mt-2">
                         <div class="col-md-4">
                             <label class="h5" style="color: #003f88;">NG Position:</label>
-                            <input type="text" name="ng_pst[]" id="ng_pst" class="form-control" placeholder="กรอก NG Position" required>
+                            <input type="text" name="ng_pst" id="ng_pst" class="form-control" placeholder="กรอก NG Position" required>
                         </div>
                         <div class="col-md-4">
                             <label class="h5" style="color: #003f88;">Serial No.:</label>
-                            <input type="text" name="serial[]" id="serial" class="form-control" placeholder="กรอก Serial" required>
+                            <input type="text" name="serial" id="serial" class="form-control" placeholder="กรอก Serial" required>
                         </div>
                         <div class="col-md-4">
                             <label class="h5" style="color: #003f88;">Ref-Document:</label>
@@ -249,9 +257,43 @@
                     }else{
                         event.preventDefault()
                         event.stopPropagation()
-                        if (form.id === 'gen_record') {
-                            alert('The form with id "gen_record" is fully filled out and validated!');
-                        }
+                        $.ajax({
+                            url: '{{route('recordPrb')}}',
+                            method: 'post',
+                            data: $('#gen_record').serialize(),
+                            dataType: 'json',
+                            beforeSend() {
+                                Swal.fire({
+                                    title: "กำลังบันทึกข้อมูล",
+                                    icon: "info",
+                                    showConfirmButton: false,
+                                    // timer: 1000,
+                                    willOpen: () => {
+                                        Swal.showLoading();
+                                    },
+                                });
+                            },
+                            success: function(data) {
+                                console.log(data)
+                                // Swal.close()
+                                // if (data.insert && data.images) {
+                                //     Swal.fire({
+                                //         title: "บันทึกข้อมูลสำเร็จ",
+                                //         icon: "success",
+                                //         showConfirmButton: false,
+                                //         timer: 1000,
+                                //     });
+                                // } else{
+                                //     Swal.fire({
+                                //         title: "ไม่สามารถบันทึกได้",
+                                //         icon: "error",
+                                //         showConfirmButton: false,
+                                //         timer: 6000,
+                                //     });
+                                // }
+                            }
+
+                        })
 
                     }
 
@@ -332,13 +374,34 @@
             var input2 = document.getElementById('defict').value;
             var percent = (input2/input1)*100;
             if (!isNaN(percent)){
-                document.getElementById('percent').value = parseInt(percent);
+                document.getElementById('percent').value = parseFloat(percent).toFixed(2);
             }else{
                 document.getElementById('percent').value = "";
 
             }
 
         }
+
+        /**
+         * TODO:18-07-2024
+         * ?show date moment input date
+         * */
+        var currentDate = new Date();
+        var day = currentDate.getDate();
+        var month = currentDate.getMonth() + 1; // เพิ่ม 1 เนื่องจากเดือนเริ่มที่ 0
+        var year = currentDate.getFullYear();
+
+        var formattedDate =
+            year +
+            "-" +
+            (month < 10 ? "0" + month : month) +
+            "-" +
+            (day < 10 ? "0" + day : day);
+
+        document.getElementById("datenow").value = formattedDate;
+
+
+
 
     </script>
 @endpush

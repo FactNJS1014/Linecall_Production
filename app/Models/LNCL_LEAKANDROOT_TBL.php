@@ -27,6 +27,13 @@ class LNCL_LEAKANDROOT_TBL extends Model
         'LNCL_ESC_WHY5',
         'LNCL_ESC_ACTION',
         'LNCL_LEAKANDROOT_LSTDT',
+        'LNCL_LEAKREC_STD',
+        'LNCL_LEAKUPDATE_STD',
+        'LNCL_ROOTREC_STD',
+        'LNCL_ROOTUPDATE_STD',
+        'LNCL_LEAKUPDATE_LSTDT',
+        'LNCL_ROOTUPDATE_LSTDT',
+
     ];
     protected $primaryKey = 'LNCL_LEAKANDROOT_ID';
     public $timestamps = false;

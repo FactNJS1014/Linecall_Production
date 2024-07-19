@@ -8,6 +8,7 @@ body {
     font-family: "Mali", cursive;
     margin: 0;
     background: #dfe6e9;
+    list-style-type: none;
 }
 #textheader{
     background: #2e363e;
@@ -182,7 +183,6 @@ a.sidebar-link:hover{
     font-weight: bold;
 }
 .h5 {
-    font-weight: 800;
     font-weight: 800;
     border-radius: 5px;
     width: auto;
